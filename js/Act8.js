@@ -2,8 +2,8 @@ new Vue({
     el: '#article',
     data: {
         articles: [
-            { cant: 5, price_unit: 869, price_items: 0 },
-            { cant: 2, price_unit: 349, price_items: 0 }
+            { cant: 2, price_unit: 200, price_items: 0 },
+            { cant: 2, price_unit: 150, price_items: 0 }
         ],
         subtotal: 0,
         iva: 0,
