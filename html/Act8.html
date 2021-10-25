@@ -24,7 +24,7 @@
                 <tr v-for="item in articles">
                     <td><input type="number" v-model="item.cant"></td>
                     <td><input type="number" v-model="item.price_unit"></td>
-                    <td>{{price_calc(item)}}</td>
+                    <td>${{price_calc(item)}}</td>
                 </tr>
             </table>
             <p><button @click="add_Art()">Añadir Articulo</button></p>
