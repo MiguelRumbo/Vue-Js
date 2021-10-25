@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 8</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1></h1>
+    </header>
+    <section>
+        <article id="article">
+            <table style="border: 2px solid rgb(58, 136, 224);">
+                <tr>
+                    <th>Cantidad</th>
+                    <th>Costo Unitario</th>
+                    <th>Costo Total/Articulo</th>
+                </tr>
+                <tr v-for="item in articles">
+                    <td><input type="number" v-model="item.cant"></td>
+                    <td><input type="number" v-model="item.price_unit"></td>
+                    <td>{{price_calc(item)}}</td>
+                </tr>
+            </table>
+            <p><button @click="add_Art()">Añadir Articulo</button></p>
+            <h3>Subtotal: ${{Subtotal}}</h3>
+            <h3>Iva: ${{Iva}}</h3>
+            <h3>Total: ${{Totalprice}}</h3>
+        </article>
+    </section>
+    <script src="../js/Act8.js"></script>
+</body>
+
+</html>
