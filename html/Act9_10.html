@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafetería</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container text-center" id="contadores" style="font-size: 20px;">
+        <section id="seccion_cafe">
+            <article id="article_drinks">
+                <h1>Cafetería</h1>
+                <h3>Menú</h3>
+                <hr>
+                <div class="row" style=" width: 45%; display: block; position: absolute; right: 55%;">
+                    <div class="container-fluid">
+                        <input type="search" v-model="search_nom" placeholder="Buscar Bebida Por Nombre" style="width: 280px;" @click="show=!show">
+                        <ul class="list-unstyled text-center">
+                            <li v-for="item in searchdrinks">
+                                <p>{{item.txt}} - {{item.drink}} - {{item.size}} - {{item.price}}</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row" style=" width: 45%; display: block; position: absolute; left: 55%;">
+                    <div class="container-fluid">
+                        <input type="search" v-model="search_pric" placeholder="Buscar Bebida Por Precio" style="width: 250px;" @click="show2=!show2">
+                        <ul class="list-unstyled text-center">
+                            <li v-for="item in pricesdrinks">
+                                <p>{{item.txt}} - {{item.drink}} - {{item.size}} - {{item.price}}</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+            <article id="article_order" style="display: block; position: absolute; top: 75%; padding-bottom: 1em;">
+                <h4 class="text-white bg-dark">Confirma tu Pedido</h4>
+                <table class="table table-bordered table-hover">
+                    <tr>
+                        <th>Cantidad</th>
+                        <th>Bebida</th>
+                        <th>Precio</th>
+                        <th>Costo Total/Articulo</th>
+                    </tr>
+                    <tr v-for="item in articulos">
+                        <td><input type="number" v-model="item.cant"></td>
+                        <td><input type="text" v-model="item.name"></td>
+                        <td>$<input type="number" v-model="item.price_unit"></td>
+                        <td>${{calculatepriceItems(item)}}</td>
+                    </tr>
+                </table>
+                <div class="bg-dark">
+                    <h3 class="text-white">Total: ${{Totalprice}}</h3><br>
+                    <button class="bg-secondary"><h4 class="text-white">Pagar</h4></button>
+                </div>
+            </article>
+        </section>
+    </div>
+    <script src="js/Act9_10.js"></script>
+</body>
+
+</html>
